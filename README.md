@@ -2,118 +2,97 @@
 
 The Animal Health Classification project is designed to assist in determining the health risk associated with various animals based on a set of symptoms. It leverages machine learning algorithms to classify conditions as either "Dangerous" or "Not Dangerous." This classification can serve as a valuable tool for veterinarians, animal handlers, and wildlife researchers to prioritize attention to potentially critical health conditions.
 
-## Features
-- **Symptom-based Classification**: Given a set of symptoms, the model predicts whether the condition is dangerous.
-- **Random Forest Model**: The classification is done using a Random Forest model.
-- **Model Training**: The model can be trained using the provided dataset, and predictions can be made on new input data.
+## 🛠️ Features
 
-## Directory Structure
-```
-project-root/
-├── .github/                  # GitHub-related files
-├── .pytest_cache/            # Pytest cache files
-├── Data/                     # Folder containing the dataset
-│   └── data.csv              # Dataset containing animal health data (symptoms and dangerous labels)
-├── model/                   
-│   ├── train_model.py        # Script for training the model
-│   ├── predict.py            # Script for making predictions
-│   └── evaluate.py           # Script for evaluating the model
-├── Tests/                    # Folder containing test scripts
-│   └── test_project.py       # Test file for training, prediction, and evaluation
-├── random_forest_model.pkl   # Trained model file
-├── symptoms_encoder.pkl      # Encoder file for symptom transformation
-├── requirements.txt          # List of required Python dependencies
-├── README.md                 # Project documentation (this file)
-├── Command of CMD.txt        # Notes or commands for CMD usage
-└── .gitignore                # Git ignore file
-```
+- **User-Friendly Interface**: Built with Streamlit for a clean and interactive user experience.
+- **Model Integration**: Utilizes a trained Random Forest Classifier for health prediction.
+- **Symptom-Based Classification**: Accepts up to 5 symptoms as input for classification.
+- **Interactive Elements**: Includes health tips, videos, and helpful information for animal care.
+- **Deployment**: Fully deployed and accessible online.
 
-## Setup Instructions
+---
 
-### 1. Clone the Repository
-Clone the repository to your local machine:
-```bash
-git clone https://github.com/your-username/animal-health-classification.git
-cd animal-health-classification
-```
+## Live Project 
+- **[Live Demo]** (https://animal-health-classification-preciptions-a-07.streamlit.app) 
+  
+## 🚀 Installation and Usage
 
-### 2. Install Dependencies
-Install the required Python libraries using `pip`:
-```bash
-pip install -r requirements.txt
-```
+### Prerequisites
+1. Python 3.8+
+2. Libraries: `pandas`, `joblib`, `streamlit`, `scikit-learn`
 
-### 3. Dataset
-The dataset (`data.csv`) should be placed in the `Data/` folder. It contains the animal names, symptoms, and whether the condition is dangerous (target variable).
+## 📁 File Structure  
+```plaintext
+├── .streamlit
+│   └── secrets.toml            # Streamlit configuration file
+├── Data
+│   └── data.csv                # Dataset used for training
+├── model
+│   ├── evaluate.py             # Model evaluation logic
+│   ├── predict.py              # Prediction functionality
+│   ├── train_model.py          # Model training code
+├── Tests
+│   ├── __init__.py             # Test initialization
+│   ├── test_project.py         # Unit test cases
+├── app.py                      # Main Streamlit application
+├── random_forest_model.pkl     # Serialized Random Forest model
+├── README.md                   # Project documentation
+├── requirements.txt            # Dependencies
+├── symptoms_encoder.pkl        # Encoded symptoms for model usage
 
-Example dataset columns:
-- `AnimalName`: Name of the animal
-- `symptoms1`, `symptoms2`, `symptoms3`, `symptoms4`, `symptoms5`: Symptoms of the animal
-- `Dangerous`: Target variable (Yes/No)
+---
 
-## Usage
+## 🎨 Preview
 
-### 1. Training the Model
-To train the model, run the following script:
-```bash
-python model/train_model.py
-```
-This will:
-- Load the dataset (`Data/data.csv`).
-- Train a Random Forest model on the data.
-- Save the trained model as `random_forest_model.pkl`.
-- Save the encoder for transforming symptoms into numerical features as `symptoms_encoder.pkl`.
+### Home Page
+![Home Page](https://via.placeholder.com/1000x600?text=Add+your+homepage+screenshot+here)
 
-### 2. Making Predictions
-After training the model, you can use it to make predictions on new symptom data. To make a prediction, run:
-```bash
-python model/predict.py
-```
-The script will use the trained model and encoder to predict whether the condition based on the symptoms provided is dangerous.
+---
 
-### 3. Evaluating the Model
-To evaluate the model's performance, use the following command:
-```bash
-python model/evaluate.py
-```
-This will:
-- Split the data into training and testing sets.
-- Evaluate the model on the test set and print metrics such as accuracy and the classification report.
+## 📚 How It Works
 
-### 4. Running Tests
-The project includes a set of tests to verify that the training, prediction, and evaluation work correctly. To run the tests, use:
-```bash
-pytest Tests/test_project.py
-```
-This will run the following tests:
-- `test_train_model`: Verifies that the model and encoder are generated after training.
-- `test_predict`: Tests the prediction functionality.
-- `test_evaluate_model`: Validates the evaluation process.
+1. The user inputs 5 symptoms via the app interface.
+2. Symptoms are encoded using the `symptoms_encoder.pkl` file.
+3. The encoded input is fed into a pre-trained Random Forest Classifier model.
+4. The model predicts whether the condition is **dangerous** or **not dangerous**.
+5. The results are displayed interactively, with animations and visual cues.
 
-## Example Usage
-The following code demonstrates how to make predictions using the trained model:
+---
 
-```python
-from model.predict import predict
+## 🖥️ Application Preview
+Open the app in your browser after running locally.
+Select symptoms from the dropdown menu.
+Click Predict to analyze if the condition is dangerous.
+Explore additional resources like health tips and a video.
 
-example_symptoms = ["Fever", "Diarrhea", "Vomiting", "Weight loss", "Dehydration"]
-prediction = predict(example_symptoms)
-print(f"Prediction: {prediction}")
-```
+## 📊 Example Output
+Input Symptoms:
+["Symptom1", "Symptom2", "Symptom3", "Symptom4", "Symptom5"]
+Prediction:
+Result: The condition is Dangerous / Not Dangerous.
 
-### Expected Output
-```
-Prediction: Yes
-```
+## 🛠️ Technologies Used
 
-## Requirements
-The following Python libraries are required to run the project:
-- `pandas`
-- `scikit-learn`
-- `joblib`
-- `pytest`
+- Python 3.8
+- Streamlit for the web interface
+- Scikit-learn for machine learning
+- Pandas for data processing
+- Joblib for model serialization
+- Gemini API for health prescriptions
 
-You can install the required libraries with:
-```bash
-pip install -r requirements.txt
-```
+## 📷 Logos and Badges
+
+### Example Project Logo
+![Animal Health Logo](https://s.tmimgcdn.com/scr/1204x1146/157100/animal-health-logo-template_157138-original.png)
+
+
+## 🌐 Deployment
+The application is deployed and maintained by Aditya Chauhan.
+
+Stay informed, stay safe!
+
+
+## 📋 Acknowledgments
+Special thanks to:
+The open-source community for their resources.
+Streamlit for enabling rapid UI development.
