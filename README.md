@@ -43,14 +43,6 @@ The Animal Health Classification project is designed to assist in determining th
 ├── requirements.txt            # Dependencies
 ├── symptoms_encoder.pkl        # Encoded symptoms for model usage
 ```
-
----
-
-## 🎨 Preview
-
-### Home Page
-![Home Page](https://via.placeholder.com/1000x600?text=Add+your+homepage+screenshot+here)
-
 ---
 
 ## 📚 How It Works
